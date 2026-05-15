@@ -1,0 +1,1205 @@
+[PASS]                                                                            RESET
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+
+=== INPUT_VALID=2'b11 ===
+
+=== Testing Arithmetic Operations (MODE=1) ===
+[PASS]                                                                              ADD: OPA=0x0f OPB=0x11 CMD=0x0
+  DUT: RES=0x0020 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  REF: RES=0x0020 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[FAIL]                                                                      ADD (carry): OPA=0xff OPB=0x01 CMD=0x0
+  DUT: RES=0x0100 COUT=1 OFLOW=1 G=0 E=0 L=0 ERR=0
+  REF: RES=0x0100 COUT=1 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                              SUB: OPA=0x20 OPB=0x10 CMD=0x1
+  DUT: RES=0x0010 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  REF: RES=0x0010 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[FAIL]                                                                   SUB (overflow): OPA=0x10 OPB=0x20 CMD=0x1
+  DUT: RES=0xfff0 COUT=1 OFLOW=1 G=0 E=0 L=0 ERR=0
+  REF: RES=0xfff0 COUT=0 OFLOW=1 G=0 E=0 L=0 ERR=0
+[PASS]                                                                          ADD_CIN: OPA=0x10 OPB=0x20 CMD=0x2
+  DUT: RES=0x0031 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  REF: RES=0x0031 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                          ADD_CIN: OPA=0x10 OPB=0x20 CMD=0x2
+  DUT: RES=0x0030 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  REF: RES=0x0030 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[FAIL]                                                                   ADD_CIN(carry): OPA=0xf0 OPB=0x20 CMD=0x2
+  DUT: RES=0x0111 COUT=1 OFLOW=1 G=0 E=0 L=0 ERR=0
+  REF: RES=0x0111 COUT=1 OFLOW=0 G=0 E=0 L=0 ERR=0
+[FAIL]                                                                   ADD_CIN(carry): OPA=0xf0 OPB=0x20 CMD=0x2
+  DUT: RES=0x0110 COUT=1 OFLOW=1 G=0 E=0 L=0 ERR=0
+  REF: RES=0x0110 COUT=1 OFLOW=0 G=0 E=0 L=0 ERR=0
+[FAIL]                                                                SUB_CIN(overflow): OPA=0x10 OPB=0x20 CMD=0x3
+  DUT: RES=0xffef COUT=1 OFLOW=1 G=0 E=0 L=0 ERR=0
+  REF: RES=0xffef COUT=0 OFLOW=1 G=0 E=0 L=0 ERR=0
+[FAIL]                                                                SUB_CIN(overflow): OPA=0x10 OPB=0x20 CMD=0x3
+  DUT: RES=0xfff0 COUT=1 OFLOW=1 G=0 E=0 L=0 ERR=0
+  REF: RES=0xfff0 COUT=0 OFLOW=1 G=0 E=0 L=0 ERR=0
+[PASS]                                                                          SUB_CIN: OPA=0xf0 OPB=0x20 CMD=0x3
+  DUT: RES=0x00cf COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  REF: RES=0x00cf COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                          SUB_CIN: OPA=0xf0 OPB=0x20 CMD=0x3
+  DUT: RES=0x00d0 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  REF: RES=0x00d0 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[FAIL]                                                                            INC_A: OPA=0x00 OPB=0x00 CMD=0x4
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0001 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[FAIL]                                                                            INC_A: OPA=0xff OPB=0x00 CMD=0x4
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[FAIL]                                                                            DEC_A: OPA=0x0f OPB=0x00 CMD=0x5
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x000e COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[FAIL]                                                                            DEC_A: OPA=0x00 OPB=0x00 CMD=0x5
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x00ff COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[FAIL]                                                                            INC_B: OPA=0x00 OPB=0x00 CMD=0x6
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0001 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[FAIL]                                                                            INC_B: OPA=0x00 OPB=0xff CMD=0x6
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[FAIL]                                                                            DEC_B: OPA=0x00 OPB=0x00 CMD=0x7
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x00ff COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[FAIL]                                                                            DEC_B: OPA=0x00 OPB=0xff CMD=0x7
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x00fe COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                      CMP (equal): OPA=0x10 OPB=0x10 CMD=0x8
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=1 L=0 ERR=0
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=1 L=0 ERR=0
+[PASS]                                                                    CMP (greater): OPA=0x20 OPB=0x10 CMD=0x8
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=1 E=0 L=0 ERR=0
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=1 E=0 L=0 ERR=0
+[PASS]                                                                       CMP (less): OPA=0x10 OPB=0x20 CMD=0x8
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=1 ERR=0
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=1 ERR=0
+[FAIL]                                                               sign add positive : OPA=0x5a OPB=0x0c CMD=0xb
+  DUT: RES=0x0066 COUT=0 OFLOW=1 G=1 E=0 L=0 ERR=0
+  REF: RES=0x0066 COUT=0 OFLOW=0 G=1 E=0 L=0 ERR=0
+[FAIL]                                                     sign add positive (overflow): OPA=0x5a OPB=0x5c CMD=0xb
+  DUT: RES=0x00b6 COUT=0 OFLOW=0 G=0 E=0 L=1 ERR=0
+  REF: RES=0x00b6 COUT=0 OFLOW=1 G=0 E=0 L=1 ERR=0
+[FAIL]                                                               sign add negative : OPA=0xaa OPB=0x0c CMD=0xb
+  DUT: RES=0x00b6 COUT=0 OFLOW=1 G=0 E=0 L=1 ERR=0
+  REF: RES=0xffb6 COUT=0 OFLOW=0 G=0 E=0 L=1 ERR=0
+[FAIL]                                                     sign add negative (overflow): OPA=0xaa OPB=0xac CMD=0xb
+  DUT: RES=0x0156 COUT=1 OFLOW=1 G=0 E=0 L=1 ERR=0
+  REF: RES=0xff56 COUT=0 OFLOW=1 G=0 E=0 L=1 ERR=0
+[FAIL]                                                               sign sub positive : OPA=0x5a OPB=0xf4 CMD=0xc
+  DUT: RES=0x0066 COUT=0 OFLOW=1 G=1 E=0 L=0 ERR=0
+  REF: RES=0x0066 COUT=0 OFLOW=0 G=1 E=0 L=0 ERR=0
+[FAIL]                                                     sign sub positive (overflow): OPA=0x5a OPB=0xa4 CMD=0xc
+  DUT: RES=0x00b6 COUT=0 OFLOW=0 G=1 E=0 L=0 ERR=0
+  REF: RES=0x00b6 COUT=0 OFLOW=1 G=1 E=0 L=0 ERR=0
+[FAIL]                                                               sign sub negative : OPA=0xaa OPB=0xf4 CMD=0xc
+  DUT: RES=0x00b6 COUT=0 OFLOW=1 G=0 E=0 L=1 ERR=0
+  REF: RES=0xffb6 COUT=0 OFLOW=0 G=0 E=0 L=1 ERR=0
+[FAIL]                                                     sign sub negative (overflow): OPA=0xaa OPB=0x54 CMD=0xc
+  DUT: RES=0x0056 COUT=0 OFLOW=1 G=0 E=0 L=1 ERR=0
+  REF: RES=0xff56 COUT=0 OFLOW=1 G=0 E=0 L=1 ERR=0
+[PASS]                                                                            ERROR: OPA=0xaa OPB=0xfb CMD=0xd
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                            ERROR: OPA=0xaa OPB=0xfb CMD=0xe
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                            ERROR: OPA=0xaa OPB=0xfb CMD=0xf
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+
+=== Testing Logical Operations (MODE=0) ===
+[PASS]                                                                              AND: OPA=0xf0 OPB=0x0f CMD=0x0
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                             NAND: OPA=0xf0 OPB=0x0f CMD=0x1
+  DUT: RES=0x00ff COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  REF: RES=0x00ff COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                               OR: OPA=0xf0 OPB=0x0f CMD=0x2
+  DUT: RES=0x00ff COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  REF: RES=0x00ff COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                              NOR: OPA=0xf0 OPB=0x0f CMD=0x3
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                              XOR: OPA=0xaa OPB=0x55 CMD=0x4
+  DUT: RES=0x00ff COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  REF: RES=0x00ff COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                             XNOR: OPA=0xaa OPB=0x55 CMD=0x5
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[FAIL]                                                                            NOT_A: OPA=0xf0 OPB=0x00 CMD=0x6
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x000f COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[FAIL]                                                                            NOT_B: OPA=0xf0 OPB=0x0a CMD=0x7
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x00f5 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[FAIL]                                                                             RS_A: OPA=0x01 OPB=0x00 CMD=0x8
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[FAIL]                                                                             RS_A: OPA=0x80 OPB=0x00 CMD=0x8
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0040 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[FAIL]                                                                             LS_A: OPA=0x01 OPB=0x00 CMD=0x9
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0002 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[FAIL]                                                                             LS_A: OPA=0x80 OPB=0x00 CMD=0x9
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[FAIL]                                                                             RS_B: OPA=0x00 OPB=0x01 CMD=0xa
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[FAIL]                                                                             RS_B: OPA=0x00 OPB=0x80 CMD=0xa
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0040 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[FAIL]                                                                             LS_B: OPA=0x00 OPB=0x01 CMD=0xb
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0002 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[FAIL]                                                                             LS_B: OPA=0x00 OPB=0x80 CMD=0xb
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                              ROL: OPA=0xaa OPB=0x00 CMD=0xc
+  DUT: RES=0x00aa COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  REF: RES=0x00aa COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                              ROL: OPA=0xaa OPB=0x01 CMD=0xc
+  DUT: RES=0x0055 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  REF: RES=0x0055 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                              ROL: OPA=0xaa OPB=0x02 CMD=0xc
+  DUT: RES=0x00aa COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  REF: RES=0x00aa COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                              ROL: OPA=0xaa OPB=0x03 CMD=0xc
+  DUT: RES=0x0055 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  REF: RES=0x0055 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                              ROL: OPA=0xaa OPB=0x04 CMD=0xc
+  DUT: RES=0x00aa COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  REF: RES=0x00aa COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                              ROL: OPA=0xaa OPB=0x05 CMD=0xc
+  DUT: RES=0x0055 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  REF: RES=0x0055 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                              ROL: OPA=0xaa OPB=0x06 CMD=0xc
+  DUT: RES=0x00aa COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  REF: RES=0x00aa COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                              ROL: OPA=0xaa OPB=0x07 CMD=0xc
+  DUT: RES=0x0055 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  REF: RES=0x0055 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[FAIL]                                                                              ROL: OPA=0xaa OPB=0x0b CMD=0xc
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0055 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[FAIL]                                                                              ROL: OPA=0xaa OPB=0xfb CMD=0xc
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0055 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                              ROR: OPA=0xaa OPB=0x00 CMD=0xd
+  DUT: RES=0x00aa COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  REF: RES=0x00aa COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                              ROR: OPA=0xaa OPB=0x01 CMD=0xd
+  DUT: RES=0x0055 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  REF: RES=0x0055 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                              ROR: OPA=0xaa OPB=0x02 CMD=0xd
+  DUT: RES=0x00aa COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  REF: RES=0x00aa COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                              ROR: OPA=0xaa OPB=0x03 CMD=0xd
+  DUT: RES=0x0055 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  REF: RES=0x0055 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                              ROR: OPA=0xaa OPB=0x04 CMD=0xd
+  DUT: RES=0x00aa COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  REF: RES=0x00aa COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                              ROR: OPA=0xaa OPB=0x05 CMD=0xd
+  DUT: RES=0x0055 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  REF: RES=0x0055 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                              ROR: OPA=0xaa OPB=0x06 CMD=0xd
+  DUT: RES=0x00aa COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  REF: RES=0x00aa COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                              ROR: OPA=0xaa OPB=0x07 CMD=0xd
+  DUT: RES=0x0055 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  REF: RES=0x0055 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[FAIL]                                                                              ROR: OPA=0xaa OPB=0x0b CMD=0xd
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0055 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[FAIL]                                                                              ROR: OPA=0xaa OPB=0xfb CMD=0xd
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0055 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                            ERROR: OPA=0xaa OPB=0xfb CMD=0xe
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                            ERROR: OPA=0xaa OPB=0xfb CMD=0xf
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+
+=== Testing MULTIPLICATION Operations (MODE=1) ===
+[FAIL-x]                                                                        MULT-CMD9: OPA=0xff OPB=0xff CMD=0x9
+  DUT: RES=0xxxxx COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                        MULT-CMD9: OPA=0xf0 OPB=0x0f CMD=0x9
+  DUT: RES=0x0f10 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  REF: RES=0x0f10 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[FAIL-x]                                                                       MULT-CMD10: OPA=0x00 OPB=0x00 CMD=0xa
+  DUT: RES=0x0f10 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[FAIL]                                                                       MULT-CMD10: OPA=0xf0 OPB=0x0f CMD=0xa
+  DUT: RES=0x1c20 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  REF: RES=0x0d20 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[FAIL-x]                                                                       MULT-CMD10: OPA=0xff OPB=0xff CMD=0xa
+  DUT: RES=0x1c20 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  REF: RES=0xfd02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+
+=== HOLD OPERATION ===
+
+=== Testing Arithmetic Operations (MODE=1) ===
+[PASS]                                                                              ADD: OPA=0x0f OPB=0x11 CMD=0x0
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                      ADD (carry): OPA=0xff OPB=0x01 CMD=0x0
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                              SUB: OPA=0x20 OPB=0x10 CMD=0x1
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                   SUB (overflow): OPA=0x10 OPB=0x20 CMD=0x1
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                          ADD_CIN: OPA=0x10 OPB=0x20 CMD=0x2
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                          ADD_CIN: OPA=0x10 OPB=0x20 CMD=0x2
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                   ADD_CIN(carry): OPA=0xf0 OPB=0x20 CMD=0x2
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                   ADD_CIN(carry): OPA=0xf0 OPB=0x20 CMD=0x2
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                SUB_CIN(overflow): OPA=0x10 OPB=0x20 CMD=0x3
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                SUB_CIN(overflow): OPA=0x10 OPB=0x20 CMD=0x3
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                          SUB_CIN: OPA=0xf0 OPB=0x20 CMD=0x3
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                          SUB_CIN: OPA=0xf0 OPB=0x20 CMD=0x3
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                            INC_A: OPA=0x00 OPB=0x00 CMD=0x4
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                            INC_A: OPA=0xff OPB=0x00 CMD=0x4
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                            DEC_A: OPA=0x0f OPB=0x00 CMD=0x5
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                            DEC_A: OPA=0x00 OPB=0x00 CMD=0x5
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                            INC_B: OPA=0x00 OPB=0x00 CMD=0x6
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                            INC_B: OPA=0x00 OPB=0xff CMD=0x6
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                            DEC_B: OPA=0x00 OPB=0x00 CMD=0x7
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                            DEC_B: OPA=0x00 OPB=0xff CMD=0x7
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                      CMP (equal): OPA=0x10 OPB=0x10 CMD=0x8
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                    CMP (greater): OPA=0x20 OPB=0x10 CMD=0x8
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                       CMP (less): OPA=0x10 OPB=0x20 CMD=0x8
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                               sign add positive : OPA=0x5a OPB=0x0c CMD=0xb
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                     sign add positive (overflow): OPA=0x5a OPB=0x5c CMD=0xb
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                               sign add negative : OPA=0xaa OPB=0x0c CMD=0xb
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                     sign add negative (overflow): OPA=0xaa OPB=0xac CMD=0xb
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                               sign sub positive : OPA=0x5a OPB=0xf4 CMD=0xc
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                     sign sub positive (overflow): OPA=0x5a OPB=0xa4 CMD=0xc
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                               sign sub negative : OPA=0xaa OPB=0xf4 CMD=0xc
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                     sign sub negative (overflow): OPA=0xaa OPB=0x54 CMD=0xc
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                            ERROR: OPA=0xaa OPB=0xfb CMD=0xd
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                            ERROR: OPA=0xaa OPB=0xfb CMD=0xe
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                            ERROR: OPA=0xaa OPB=0xfb CMD=0xf
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+
+=== Testing Logical Operations (MODE=0) ===
+[PASS]                                                                              AND: OPA=0xf0 OPB=0x0f CMD=0x0
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                             NAND: OPA=0xf0 OPB=0x0f CMD=0x1
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                               OR: OPA=0xf0 OPB=0x0f CMD=0x2
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                              NOR: OPA=0xf0 OPB=0x0f CMD=0x3
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                              XOR: OPA=0xaa OPB=0x55 CMD=0x4
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                             XNOR: OPA=0xaa OPB=0x55 CMD=0x5
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                            NOT_A: OPA=0xf0 OPB=0x00 CMD=0x6
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                            NOT_B: OPA=0xf0 OPB=0x0a CMD=0x7
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                             RS_A: OPA=0x01 OPB=0x00 CMD=0x8
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                             RS_A: OPA=0x80 OPB=0x00 CMD=0x8
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                             LS_A: OPA=0x01 OPB=0x00 CMD=0x9
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                             LS_A: OPA=0x80 OPB=0x00 CMD=0x9
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                             RS_B: OPA=0x00 OPB=0x01 CMD=0xa
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                             RS_B: OPA=0x00 OPB=0x80 CMD=0xa
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                             LS_B: OPA=0x00 OPB=0x01 CMD=0xb
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                             LS_B: OPA=0x00 OPB=0x80 CMD=0xb
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                              ROL: OPA=0xaa OPB=0x00 CMD=0xc
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                              ROL: OPA=0xaa OPB=0x01 CMD=0xc
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                              ROL: OPA=0xaa OPB=0x02 CMD=0xc
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                              ROL: OPA=0xaa OPB=0x03 CMD=0xc
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                              ROL: OPA=0xaa OPB=0x04 CMD=0xc
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                              ROL: OPA=0xaa OPB=0x05 CMD=0xc
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                              ROL: OPA=0xaa OPB=0x06 CMD=0xc
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                              ROL: OPA=0xaa OPB=0x07 CMD=0xc
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                              ROL: OPA=0xaa OPB=0x0b CMD=0xc
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                              ROL: OPA=0xaa OPB=0xfb CMD=0xc
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                              ROR: OPA=0xaa OPB=0x00 CMD=0xd
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                              ROR: OPA=0xaa OPB=0x01 CMD=0xd
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                              ROR: OPA=0xaa OPB=0x02 CMD=0xd
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                              ROR: OPA=0xaa OPB=0x03 CMD=0xd
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                              ROR: OPA=0xaa OPB=0x04 CMD=0xd
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                              ROR: OPA=0xaa OPB=0x05 CMD=0xd
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                              ROR: OPA=0xaa OPB=0x06 CMD=0xd
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                              ROR: OPA=0xaa OPB=0x07 CMD=0xd
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                              ROR: OPA=0xaa OPB=0x0b CMD=0xd
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                              ROR: OPA=0xaa OPB=0xfb CMD=0xd
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                            ERROR: OPA=0xaa OPB=0xfb CMD=0xe
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                            ERROR: OPA=0xaa OPB=0xfb CMD=0xf
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+
+=== Testing MULTIPLICATION Operations (MODE=1) ===
+[PASS]                                                                        MULT-CMD9: OPA=0xff OPB=0xff CMD=0x9
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                        MULT-CMD9: OPA=0xf0 OPB=0x0f CMD=0x9
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                       MULT-CMD10: OPA=0x00 OPB=0x00 CMD=0xa
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                       MULT-CMD10: OPA=0xf0 OPB=0x0f CMD=0xa
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                       MULT-CMD10: OPA=0xff OPB=0xff CMD=0xa
+   DUT: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  HELD: RES=0xfc02 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+
+=== INPUT_VALID=2'b00 ===
+
+=== Testing Arithmetic Operations (MODE=1) ===
+[PASS]                                                                              ADD: OPA=0x0f OPB=0x11 CMD=0x0
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                      ADD (carry): OPA=0xff OPB=0x01 CMD=0x0
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                              SUB: OPA=0x20 OPB=0x10 CMD=0x1
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                   SUB (overflow): OPA=0x10 OPB=0x20 CMD=0x1
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                          ADD_CIN: OPA=0x10 OPB=0x20 CMD=0x2
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                          ADD_CIN: OPA=0x10 OPB=0x20 CMD=0x2
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                   ADD_CIN(carry): OPA=0xf0 OPB=0x20 CMD=0x2
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                   ADD_CIN(carry): OPA=0xf0 OPB=0x20 CMD=0x2
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                SUB_CIN(overflow): OPA=0x10 OPB=0x20 CMD=0x3
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                SUB_CIN(overflow): OPA=0x10 OPB=0x20 CMD=0x3
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                          SUB_CIN: OPA=0xf0 OPB=0x20 CMD=0x3
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                          SUB_CIN: OPA=0xf0 OPB=0x20 CMD=0x3
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                            INC_A: OPA=0x00 OPB=0x00 CMD=0x4
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                            INC_A: OPA=0xff OPB=0x00 CMD=0x4
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                            DEC_A: OPA=0x0f OPB=0x00 CMD=0x5
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                            DEC_A: OPA=0x00 OPB=0x00 CMD=0x5
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                            INC_B: OPA=0x00 OPB=0x00 CMD=0x6
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                            INC_B: OPA=0x00 OPB=0xff CMD=0x6
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                            DEC_B: OPA=0x00 OPB=0x00 CMD=0x7
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                            DEC_B: OPA=0x00 OPB=0xff CMD=0x7
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                      CMP (equal): OPA=0x10 OPB=0x10 CMD=0x8
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                    CMP (greater): OPA=0x20 OPB=0x10 CMD=0x8
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                       CMP (less): OPA=0x10 OPB=0x20 CMD=0x8
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                               sign add positive : OPA=0x5a OPB=0x0c CMD=0xb
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                     sign add positive (overflow): OPA=0x5a OPB=0x5c CMD=0xb
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                               sign add negative : OPA=0xaa OPB=0x0c CMD=0xb
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                     sign add negative (overflow): OPA=0xaa OPB=0xac CMD=0xb
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                               sign sub positive : OPA=0x5a OPB=0xf4 CMD=0xc
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                     sign sub positive (overflow): OPA=0x5a OPB=0xa4 CMD=0xc
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                               sign sub negative : OPA=0xaa OPB=0xf4 CMD=0xc
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                     sign sub negative (overflow): OPA=0xaa OPB=0x54 CMD=0xc
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                            ERROR: OPA=0xaa OPB=0xfb CMD=0xd
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                            ERROR: OPA=0xaa OPB=0xfb CMD=0xe
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                            ERROR: OPA=0xaa OPB=0xfb CMD=0xf
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+
+=== Testing Logical Operations (MODE=0) ===
+[PASS]                                                                              AND: OPA=0xf0 OPB=0x0f CMD=0x0
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                             NAND: OPA=0xf0 OPB=0x0f CMD=0x1
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                               OR: OPA=0xf0 OPB=0x0f CMD=0x2
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                              NOR: OPA=0xf0 OPB=0x0f CMD=0x3
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                              XOR: OPA=0xaa OPB=0x55 CMD=0x4
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                             XNOR: OPA=0xaa OPB=0x55 CMD=0x5
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                            NOT_A: OPA=0xf0 OPB=0x00 CMD=0x6
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                            NOT_B: OPA=0xf0 OPB=0x0a CMD=0x7
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                             RS_A: OPA=0x01 OPB=0x00 CMD=0x8
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                             RS_A: OPA=0x80 OPB=0x00 CMD=0x8
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                             LS_A: OPA=0x01 OPB=0x00 CMD=0x9
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                             LS_A: OPA=0x80 OPB=0x00 CMD=0x9
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                             RS_B: OPA=0x00 OPB=0x01 CMD=0xa
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                             RS_B: OPA=0x00 OPB=0x80 CMD=0xa
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                             LS_B: OPA=0x00 OPB=0x01 CMD=0xb
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                             LS_B: OPA=0x00 OPB=0x80 CMD=0xb
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROL: OPA=0xaa OPB=0x00 CMD=0xc
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x00aa COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROL: OPA=0xaa OPB=0x01 CMD=0xc
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0055 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROL: OPA=0xaa OPB=0x02 CMD=0xc
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x00aa COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROL: OPA=0xaa OPB=0x03 CMD=0xc
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0055 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROL: OPA=0xaa OPB=0x04 CMD=0xc
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x00aa COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROL: OPA=0xaa OPB=0x05 CMD=0xc
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0055 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROL: OPA=0xaa OPB=0x06 CMD=0xc
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x00aa COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROL: OPA=0xaa OPB=0x07 CMD=0xc
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0055 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROL: OPA=0xaa OPB=0x0b CMD=0xc
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0055 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROL: OPA=0xaa OPB=0xfb CMD=0xc
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0055 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROR: OPA=0xaa OPB=0x00 CMD=0xd
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x00aa COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROR: OPA=0xaa OPB=0x01 CMD=0xd
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0055 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROR: OPA=0xaa OPB=0x02 CMD=0xd
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x00aa COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROR: OPA=0xaa OPB=0x03 CMD=0xd
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0055 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROR: OPA=0xaa OPB=0x04 CMD=0xd
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x00aa COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROR: OPA=0xaa OPB=0x05 CMD=0xd
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0055 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROR: OPA=0xaa OPB=0x06 CMD=0xd
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x00aa COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROR: OPA=0xaa OPB=0x07 CMD=0xd
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0055 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROR: OPA=0xaa OPB=0x0b CMD=0xd
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0055 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROR: OPA=0xaa OPB=0xfb CMD=0xd
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0055 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                            ERROR: OPA=0xaa OPB=0xfb CMD=0xe
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                            ERROR: OPA=0xaa OPB=0xfb CMD=0xf
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+
+=== Testing MULTIPLICATION Operations (MODE=1) ===
+[PASS]                                                                        MULT-CMD9: OPA=0xff OPB=0xff CMD=0x9
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                        MULT-CMD9: OPA=0xf0 OPB=0x0f CMD=0x9
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                       MULT-CMD10: OPA=0x00 OPB=0x00 CMD=0xa
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                       MULT-CMD10: OPA=0xf0 OPB=0x0f CMD=0xa
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                       MULT-CMD10: OPA=0xff OPB=0xff CMD=0xa
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+
+=== INPUT_VALID=2'b01 ===
+
+=== Testing Arithmetic Operations (MODE=1) ===
+[PASS]                                                                              ADD: OPA=0x0f OPB=0x11 CMD=0x0
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                      ADD (carry): OPA=0xff OPB=0x01 CMD=0x0
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                              SUB: OPA=0x20 OPB=0x10 CMD=0x1
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                   SUB (overflow): OPA=0x10 OPB=0x20 CMD=0x1
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                          ADD_CIN: OPA=0x10 OPB=0x20 CMD=0x2
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                          ADD_CIN: OPA=0x10 OPB=0x20 CMD=0x2
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                   ADD_CIN(carry): OPA=0xf0 OPB=0x20 CMD=0x2
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                   ADD_CIN(carry): OPA=0xf0 OPB=0x20 CMD=0x2
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                SUB_CIN(overflow): OPA=0x10 OPB=0x20 CMD=0x3
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                SUB_CIN(overflow): OPA=0x10 OPB=0x20 CMD=0x3
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                          SUB_CIN: OPA=0xf0 OPB=0x20 CMD=0x3
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                          SUB_CIN: OPA=0xf0 OPB=0x20 CMD=0x3
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                            INC_A: OPA=0x00 OPB=0x00 CMD=0x4
+  DUT: RES=0x0001 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  REF: RES=0x0001 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[FAIL]                                                                            INC_A: OPA=0xff OPB=0x00 CMD=0x4
+  DUT: RES=0x0100 COUT=1 OFLOW=1 G=0 E=0 L=0 ERR=0
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                            DEC_A: OPA=0x0f OPB=0x00 CMD=0x5
+  DUT: RES=0x000e COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  REF: RES=0x000e COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[FAIL]                                                                            DEC_A: OPA=0x00 OPB=0x00 CMD=0x5
+  DUT: RES=0xffff COUT=1 OFLOW=1 G=0 E=0 L=0 ERR=0
+  REF: RES=0x00ff COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                            INC_B: OPA=0x00 OPB=0x00 CMD=0x6
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                            INC_B: OPA=0x00 OPB=0xff CMD=0x6
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                            DEC_B: OPA=0x00 OPB=0x00 CMD=0x7
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                            DEC_B: OPA=0x00 OPB=0xff CMD=0x7
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                      CMP (equal): OPA=0x10 OPB=0x10 CMD=0x8
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                    CMP (greater): OPA=0x20 OPB=0x10 CMD=0x8
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                       CMP (less): OPA=0x10 OPB=0x20 CMD=0x8
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                               sign add positive : OPA=0x5a OPB=0x0c CMD=0xb
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                     sign add positive (overflow): OPA=0x5a OPB=0x5c CMD=0xb
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                               sign add negative : OPA=0xaa OPB=0x0c CMD=0xb
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                     sign add negative (overflow): OPA=0xaa OPB=0xac CMD=0xb
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                               sign sub positive : OPA=0x5a OPB=0xf4 CMD=0xc
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                     sign sub positive (overflow): OPA=0x5a OPB=0xa4 CMD=0xc
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                               sign sub negative : OPA=0xaa OPB=0xf4 CMD=0xc
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                     sign sub negative (overflow): OPA=0xaa OPB=0x54 CMD=0xc
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                            ERROR: OPA=0xaa OPB=0xfb CMD=0xd
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                            ERROR: OPA=0xaa OPB=0xfb CMD=0xe
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                            ERROR: OPA=0xaa OPB=0xfb CMD=0xf
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+
+=== Testing Logical Operations (MODE=0) ===
+[PASS]                                                                              AND: OPA=0xf0 OPB=0x0f CMD=0x0
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                             NAND: OPA=0xf0 OPB=0x0f CMD=0x1
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                               OR: OPA=0xf0 OPB=0x0f CMD=0x2
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                              NOR: OPA=0xf0 OPB=0x0f CMD=0x3
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                              XOR: OPA=0xaa OPB=0x55 CMD=0x4
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                             XNOR: OPA=0xaa OPB=0x55 CMD=0x5
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                            NOT_A: OPA=0xf0 OPB=0x00 CMD=0x6
+  DUT: RES=0x000f COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  REF: RES=0x000f COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                            NOT_B: OPA=0xf0 OPB=0x0a CMD=0x7
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                             RS_A: OPA=0x01 OPB=0x00 CMD=0x8
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                             RS_A: OPA=0x80 OPB=0x00 CMD=0x8
+  DUT: RES=0x0040 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  REF: RES=0x0040 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                             LS_A: OPA=0x01 OPB=0x00 CMD=0x9
+  DUT: RES=0x0002 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  REF: RES=0x0002 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                             LS_A: OPA=0x80 OPB=0x00 CMD=0x9
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                             RS_B: OPA=0x00 OPB=0x01 CMD=0xa
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                             RS_B: OPA=0x00 OPB=0x80 CMD=0xa
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                             LS_B: OPA=0x00 OPB=0x01 CMD=0xb
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                             LS_B: OPA=0x00 OPB=0x80 CMD=0xb
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROL: OPA=0xaa OPB=0x00 CMD=0xc
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x00aa COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROL: OPA=0xaa OPB=0x01 CMD=0xc
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0055 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROL: OPA=0xaa OPB=0x02 CMD=0xc
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x00aa COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROL: OPA=0xaa OPB=0x03 CMD=0xc
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0055 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROL: OPA=0xaa OPB=0x04 CMD=0xc
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x00aa COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROL: OPA=0xaa OPB=0x05 CMD=0xc
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0055 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROL: OPA=0xaa OPB=0x06 CMD=0xc
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x00aa COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROL: OPA=0xaa OPB=0x07 CMD=0xc
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0055 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROL: OPA=0xaa OPB=0x0b CMD=0xc
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0055 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROL: OPA=0xaa OPB=0xfb CMD=0xc
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0055 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROR: OPA=0xaa OPB=0x00 CMD=0xd
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x00aa COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROR: OPA=0xaa OPB=0x01 CMD=0xd
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0055 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROR: OPA=0xaa OPB=0x02 CMD=0xd
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x00aa COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROR: OPA=0xaa OPB=0x03 CMD=0xd
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0055 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROR: OPA=0xaa OPB=0x04 CMD=0xd
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x00aa COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROR: OPA=0xaa OPB=0x05 CMD=0xd
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0055 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROR: OPA=0xaa OPB=0x06 CMD=0xd
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x00aa COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROR: OPA=0xaa OPB=0x07 CMD=0xd
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0055 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROR: OPA=0xaa OPB=0x0b CMD=0xd
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0055 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROR: OPA=0xaa OPB=0xfb CMD=0xd
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0055 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                            ERROR: OPA=0xaa OPB=0xfb CMD=0xe
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                            ERROR: OPA=0xaa OPB=0xfb CMD=0xf
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+
+=== Testing MULTIPLICATION Operations (MODE=1) ===
+[PASS]                                                                        MULT-CMD9: OPA=0xff OPB=0xff CMD=0x9
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                        MULT-CMD9: OPA=0xf0 OPB=0x0f CMD=0x9
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                       MULT-CMD10: OPA=0x00 OPB=0x00 CMD=0xa
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                       MULT-CMD10: OPA=0xf0 OPB=0x0f CMD=0xa
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                       MULT-CMD10: OPA=0xff OPB=0xff CMD=0xa
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+
+=== INPUT_VALID=2'b10 ===
+
+=== Testing Arithmetic Operations (MODE=1) ===
+[PASS]                                                                              ADD: OPA=0x0f OPB=0x11 CMD=0x0
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                      ADD (carry): OPA=0xff OPB=0x01 CMD=0x0
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                              SUB: OPA=0x20 OPB=0x10 CMD=0x1
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                   SUB (overflow): OPA=0x10 OPB=0x20 CMD=0x1
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                          ADD_CIN: OPA=0x10 OPB=0x20 CMD=0x2
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                          ADD_CIN: OPA=0x10 OPB=0x20 CMD=0x2
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                   ADD_CIN(carry): OPA=0xf0 OPB=0x20 CMD=0x2
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                   ADD_CIN(carry): OPA=0xf0 OPB=0x20 CMD=0x2
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                SUB_CIN(overflow): OPA=0x10 OPB=0x20 CMD=0x3
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                SUB_CIN(overflow): OPA=0x10 OPB=0x20 CMD=0x3
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                          SUB_CIN: OPA=0xf0 OPB=0x20 CMD=0x3
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                          SUB_CIN: OPA=0xf0 OPB=0x20 CMD=0x3
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                            INC_A: OPA=0x00 OPB=0x00 CMD=0x4
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                            INC_A: OPA=0xff OPB=0x00 CMD=0x4
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                            DEC_A: OPA=0x0f OPB=0x00 CMD=0x5
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                            DEC_A: OPA=0x00 OPB=0x00 CMD=0x5
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                            INC_B: OPA=0x00 OPB=0x00 CMD=0x6
+  DUT: RES=0x0001 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  REF: RES=0x0001 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[FAIL]                                                                            INC_B: OPA=0x00 OPB=0xff CMD=0x6
+  DUT: RES=0x0100 COUT=1 OFLOW=1 G=0 E=0 L=0 ERR=0
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[FAIL]                                                                            DEC_B: OPA=0x00 OPB=0x00 CMD=0x7
+  DUT: RES=0xffff COUT=1 OFLOW=1 G=0 E=0 L=0 ERR=0
+  REF: RES=0x00ff COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                            DEC_B: OPA=0x00 OPB=0xff CMD=0x7
+  DUT: RES=0x00fe COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  REF: RES=0x00fe COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                      CMP (equal): OPA=0x10 OPB=0x10 CMD=0x8
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                    CMP (greater): OPA=0x20 OPB=0x10 CMD=0x8
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                       CMP (less): OPA=0x10 OPB=0x20 CMD=0x8
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                               sign add positive : OPA=0x5a OPB=0x0c CMD=0xb
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                     sign add positive (overflow): OPA=0x5a OPB=0x5c CMD=0xb
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                               sign add negative : OPA=0xaa OPB=0x0c CMD=0xb
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                     sign add negative (overflow): OPA=0xaa OPB=0xac CMD=0xb
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                               sign sub positive : OPA=0x5a OPB=0xf4 CMD=0xc
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                     sign sub positive (overflow): OPA=0x5a OPB=0xa4 CMD=0xc
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                               sign sub negative : OPA=0xaa OPB=0xf4 CMD=0xc
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                     sign sub negative (overflow): OPA=0xaa OPB=0x54 CMD=0xc
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                            ERROR: OPA=0xaa OPB=0xfb CMD=0xd
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                            ERROR: OPA=0xaa OPB=0xfb CMD=0xe
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                            ERROR: OPA=0xaa OPB=0xfb CMD=0xf
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+
+=== Testing Logical Operations (MODE=0) ===
+[PASS]                                                                              AND: OPA=0xf0 OPB=0x0f CMD=0x0
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                             NAND: OPA=0xf0 OPB=0x0f CMD=0x1
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                               OR: OPA=0xf0 OPB=0x0f CMD=0x2
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                              NOR: OPA=0xf0 OPB=0x0f CMD=0x3
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                              XOR: OPA=0xaa OPB=0x55 CMD=0x4
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                             XNOR: OPA=0xaa OPB=0x55 CMD=0x5
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                            NOT_A: OPA=0xf0 OPB=0x00 CMD=0x6
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                            NOT_B: OPA=0xf0 OPB=0x0a CMD=0x7
+  DUT: RES=0x00f5 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  REF: RES=0x00f5 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                             RS_A: OPA=0x01 OPB=0x00 CMD=0x8
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                             RS_A: OPA=0x80 OPB=0x00 CMD=0x8
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                             LS_A: OPA=0x01 OPB=0x00 CMD=0x9
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                             LS_A: OPA=0x80 OPB=0x00 CMD=0x9
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                             RS_B: OPA=0x00 OPB=0x01 CMD=0xa
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                             RS_B: OPA=0x00 OPB=0x80 CMD=0xa
+  DUT: RES=0x0040 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  REF: RES=0x0040 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                             LS_B: OPA=0x00 OPB=0x01 CMD=0xb
+  DUT: RES=0x0002 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  REF: RES=0x0002 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[PASS]                                                                             LS_B: OPA=0x00 OPB=0x80 CMD=0xb
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=0
+[FAIL]                                                                              ROL: OPA=0xaa OPB=0x00 CMD=0xc
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x00aa COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROL: OPA=0xaa OPB=0x01 CMD=0xc
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0055 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROL: OPA=0xaa OPB=0x02 CMD=0xc
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x00aa COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROL: OPA=0xaa OPB=0x03 CMD=0xc
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0055 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROL: OPA=0xaa OPB=0x04 CMD=0xc
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x00aa COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROL: OPA=0xaa OPB=0x05 CMD=0xc
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0055 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROL: OPA=0xaa OPB=0x06 CMD=0xc
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x00aa COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROL: OPA=0xaa OPB=0x07 CMD=0xc
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0055 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROL: OPA=0xaa OPB=0x0b CMD=0xc
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0055 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROL: OPA=0xaa OPB=0xfb CMD=0xc
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0055 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROR: OPA=0xaa OPB=0x00 CMD=0xd
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x00aa COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROR: OPA=0xaa OPB=0x01 CMD=0xd
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0055 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROR: OPA=0xaa OPB=0x02 CMD=0xd
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x00aa COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROR: OPA=0xaa OPB=0x03 CMD=0xd
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0055 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROR: OPA=0xaa OPB=0x04 CMD=0xd
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x00aa COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROR: OPA=0xaa OPB=0x05 CMD=0xd
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0055 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROR: OPA=0xaa OPB=0x06 CMD=0xd
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x00aa COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROR: OPA=0xaa OPB=0x07 CMD=0xd
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0055 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROR: OPA=0xaa OPB=0x0b CMD=0xd
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0055 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[FAIL]                                                                              ROR: OPA=0xaa OPB=0xfb CMD=0xd
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0055 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                            ERROR: OPA=0xaa OPB=0xfb CMD=0xe
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                            ERROR: OPA=0xaa OPB=0xfb CMD=0xf
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+
+=== Testing MULTIPLICATION Operations (MODE=1) ===
+[PASS]                                                                        MULT-CMD9: OPA=0xff OPB=0xff CMD=0x9
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                        MULT-CMD9: OPA=0xf0 OPB=0x0f CMD=0x9
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                       MULT-CMD10: OPA=0x00 OPB=0x00 CMD=0xa
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                       MULT-CMD10: OPA=0xf0 OPB=0x0f CMD=0xa
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+[PASS]                                                                       MULT-CMD10: OPA=0xff OPB=0xff CMD=0xa
+  DUT: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+  REF: RES=0x0000 COUT=0 OFLOW=0 G=0 E=0 L=0 ERR=1
+
+=== TEST SUMMARY ===
+Total Tests: 386
+PASS: 282
+FAIL: 104
+
+*** SOME TESTS FAILED ***
+
